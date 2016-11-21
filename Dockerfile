@@ -20,7 +20,6 @@ RUN wget -O - http://repo.acestream.org/keys/acestream.public.key | apt-key add 
 RUN apt-get update && apt-get install -y acestream-engine vlc-nox python-gevent supervisor unzip git
 
 #
-RUN mkdir -p /var/run/sshd
 RUN mkdir -p /var/log/supervisor
 RUN adduser --disabled-password --gecos "" tv
 RUN git clone https://github.com/AndreyPavlenko/aceproxy.git
@@ -28,3 +27,10 @@ RUN mv ./aceproxy /home/tv/aceproxy-master
 
 RUN echo 'root:password' |chpasswd
 
+ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+ADD start.sh /start.sh
+RUN chmod +x /start.sh
+
+EXPOSE 8000 8621 62062
+
+ENTRYPOINT ["/start.sh"]
