@@ -16,7 +16,7 @@ do_copy_config()
     return 0
   fi
 
-  install -m 0644 -o aceproxy $SRC $DEST
+  install -m 0644 -o tv $SRC $DEST
 }
 
 adjust_settings()
