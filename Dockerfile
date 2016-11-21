@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y acestream-engine vlc-nox python-gevent 
 
 #
 RUN mkdir -p /var/log/supervisor
-RUN adduser --disabled-password --gecos "" tv
+RUN useradd --disabled-password --system --create-home --no-user-group --gid nogroup tv
 RUN git clone https://github.com/AndreyPavlenko/aceproxy.git
 RUN mv ./aceproxy /home/tv/aceproxy-master
 
