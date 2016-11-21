@@ -25,8 +25,6 @@ RUN adduser --disabled-password --gecos "" tv
 RUN git clone https://github.com/AndreyPavlenko/aceproxy.git
 RUN mv ./aceproxy /home/tv/aceproxy-master
 
-RUN echo 'root:password' |chpasswd
-
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 ADD start.sh /start.sh
 RUN chmod +x /start.sh
