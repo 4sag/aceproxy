@@ -10,7 +10,7 @@ do_copy_config()
     DEST=.
   fi
 
-  DEST=/home/aceproxy/aceproxy/$DEST/$CONFIG
+  DEST=/home/tv/aceproxy-master/$DEST/$CONFIG
 
   if [[ ! -f $SRC ]]; then
     return 0
@@ -21,10 +21,10 @@ do_copy_config()
 
 adjust_settings()
 {
-  sed -i 's/acespawn = False/acespawn = True/' /home/aceproxy/aceproxy/aceconfig.py
-  sed -i 's/vlcuse = False/vlcuse = True/' /home/aceproxy/aceproxy/aceconfig.py
-  sed -i 's/vlcspawn = False/vlcspawn = True/' /home/aceproxy/aceproxy/aceconfig.py
-  sed -i 's/videoobey = True/videoobey = False/' /home/aceproxy/aceproxy/aceconfig.py
+  sed -i 's/acespawn = False/acespawn = True/' /home/tv/aceproxy-master/aceconfig.py
+  sed -i 's/vlcuse = False/vlcuse = True/' /home/tv/aceproxy-master/aceconfig.py
+  sed -i 's/vlcspawn = False/vlcspawn = True/' /home/tv/aceproxy-master/aceconfig.py
+  sed -i 's/videoobey = True/videoobey = False/' /home/tv/aceproxy-master/aceconfig.py
 }
 
 do_copy_config aceconfig.py
