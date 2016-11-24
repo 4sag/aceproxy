@@ -1,8 +1,8 @@
 
-# Version: 0.0.1
+# Version: 0.0.2
 
 # Используем за основу контейнера phusion/baseimage
-FROM phusion/baseimage:latest
+FROM ubuntu:14.04
 
 # Переключаем Ubuntu в неинтерактивный режим — чтобы избежать лишних запросов
 ENV DEBIAN_FRONTEND noninteractive 
@@ -15,16 +15,9 @@ RUN echo Asia/Yekaterinburg >/etc/timezone && dpkg-reconfigure -f noninteractive
 
 # Добавляем необходимые репозитарии и устанавливаем пакеты
 RUN apt-get update && apt-get install -y wget
-#RUN echo 'deb http://repo.acestream.org/ubuntu/ trusty main' > /etc/apt/sources.list.d/acestream.list
-#RUN wget -O - http://repo.acestream.org/keys/acestream.public.key | apt-key add -
-#RUN apt-get update && apt-get install -y acestream-engine vlc-nox python-gevent supervisor unzip git
-RUN wget http://4sag.ru/libgnutls-deb0-28_3.3.15-5ubuntu2_amd64.deb
-RUN wget http://4sag.ru/acestream-engine_3.0.5.1-0.2_amd64.deb
-RUN apt-get install -y vlc-nox python-gevent supervisor unzip git python-setuptools python-pip python-dev build-essential
-RUN apt-get install -y python-apsw python-m2crypto python-appindicator
-RUN dpkg -i libgnutls-deb0-28_3.3.15-5ubuntu2_amd64.deb
-RUN dpkg -i acestream-engine_3.0.5.1-0.2_amd64.deb
-RUN pip install greenlet gevent psutil
+RUN echo 'deb http://repo.acestream.org/ubuntu/ trusty main' > /etc/apt/sources.list.d/acestream.list
+RUN wget -O - http://repo.acestream.org/keys/acestream.public.key | apt-key add -
+RUN apt-get update && apt-get install -y acestream-engine vlc-nox python-gevent supervisor ca-certificates git
 
 #
 RUN mkdir -p /var/log/supervisor
