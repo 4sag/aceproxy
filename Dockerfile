@@ -20,7 +20,8 @@ RUN apt-get update && apt-get install -y wget
 #RUN apt-get update && apt-get install -y acestream-engine vlc-nox python-gevent supervisor unzip git
 RUN wget http://4sag.ru/libgnutls-deb0-28_3.3.15-5ubuntu2_amd64.deb
 RUN wget http://4sag.ru/acestream-engine_3.0.5.1-0.2_amd64.deb
-RUN apt-get update && apt-get install -y vlc-nox python-gevent supervisor unzip git python-setuptools python-pip python-dev build-essential
+RUN apt-get install -y vlc-nox python-gevent supervisor unzip git python-setuptools python-pip python-dev build-essential
+RUN apt-get install -y python-apsw python-m2crypto python-appindicator
 RUN dpkg -i libgnutls-deb0-28_3.3.15-5ubuntu2_amd64.deb
 RUN dpkg -i acestream-engine_3.0.5.1-0.2_amd64.deb
 RUN pip install greenlet gevent psutil
