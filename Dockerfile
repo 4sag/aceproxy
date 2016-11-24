@@ -17,7 +17,8 @@ RUN echo Asia/Yekaterinburg >/etc/timezone && dpkg-reconfigure -f noninteractive
 RUN apt-get update && apt-get install -y wget
 RUN echo 'deb http://repo.acestream.org/ubuntu/ trusty main' > /etc/apt/sources.list.d/acestream.list
 RUN wget -O - http://repo.acestream.org/keys/acestream.public.key | apt-key add -
-RUN apt-get update && apt-get install -y acestream-engine vlc-nox python-gevent supervisor ca-certificates git
+RUN apt-get update && apt-get install -y acestream-engine vlc-nox python-gevent supervisor ca-certificates git python-setuptools python-pip python-dev build-essential
+RUN pip install greenlet gevent psutil
 
 #
 RUN mkdir -p /var/log/supervisor
