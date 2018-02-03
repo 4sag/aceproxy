@@ -2,7 +2,7 @@
 # Version: 0.0.2
 
 # Используем за основу контейнера phusion/baseimage
-FROM ubuntu:14.04
+FROM ubuntu:14.05
 
 # Переключаем Ubuntu в неинтерактивный режим — чтобы избежать лишних запросов
 ENV DEBIAN_FRONTEND noninteractive 
